@@ -2,7 +2,7 @@
 
 
 # Setup desktop
-sudo pacman -S --noconfirm hyprland dunst kitty dolphin rofi xdg-desktop-portal-hyprland qt5-wayland qt6-wayland polkit-kde-agent grim uwsm ttf-hack-nerd fish waybar
+sudo pacman -S --noconfirm hyprland dunst kitty dolphin rofi xdg-desktop-portal-hyprland qt5-wayland qt6-wayland polkit-kde-agent grim uwsm ttf-hack-nerd fish waybar neovim
 
 cp -r ./dotfiles/.config/* ~/.config/
 
