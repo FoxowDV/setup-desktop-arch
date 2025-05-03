@@ -6,7 +6,7 @@ sudo pacman -S --noconfirm hyprland dunst kitty dolphin rofi xdg-desktop-portal-
 
 cp -r ./dotfiles/.config/* ~/.config/
 
-cp -r ./files/greetd/* /etc/greetd/
+sudo cp -r ./files/greetd/* /etc/greetd/
 
 
 # Setup system
