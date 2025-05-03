@@ -1,0 +1,145 @@
+// -*- mode: jsonc -*-
+{
+  "layer": "top", 
+  "position": "top", 
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "custom/spotify"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "backlight",
+    "battery",
+    "clock",
+    "tray",
+	"hyprland/language",
+    "network",
+	"custom/lock",
+	"custom/power"
+  ],
+  // Modules configuration
+  "hyprland/workspaces": {
+	"on-click": "activate",
+			"on-scroll-up": "hyprctl dispatch workspace e-1",
+			"on-scroll-down": "hyprctl dispatch workspace e+1",
+			"format": "{icon}",
+			"all-outputs": true,
+			"format-icons": {
+				"1": "",
+				"2": "󰖟",
+				"5": "󰎉",
+				"default": ""
+			}
+  },
+	"custom/spotify": {
+		"exec": "/usr/bin/python3 /home/wallace/.config/waybar/mediaplayer.py --player spotify",
+		"format": " {}",
+		"return-type": "json",
+		"on-click": "playerctl play-pause",
+		"on-scroll-up": "playerctl next",
+		"on-scroll-down": "playerctl previous"
+	},
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10
+    ,"show-passive-items":true
+  },
+  "clock": {
+    // "timezone": "America/New_York",
+	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+	"format-alt": "  {:%d/%m/%Y}",
+	"format": "  {:%H:%M}"
+  },
+  "backlight": {
+    // "device": "acpi_video1",
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "battery": {
+    "states": {
+      "warning": 25,
+      "critical": 10
+    },
+    "format": "<span font='12'>{icon} </span> {capacity}%",
+		"format-charging": "󰂄",
+		"format-plugged": "",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		]  },
+  "network": {
+    //"interface": "wlan0", // (Optional) To force the use of this interface
+    "format": "{bandwidthDownBytes}",
+    //"format-ethernet": "󰈀   Ethernet: {ipaddr}",
+    "tooltip-format": "{ifname} via {gwaddr} 󰈀",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "Disconnected ⚠",
+    "format-alt": "IP: {ipaddr}",
+  },
+  "pulseaudio": {
+    // "scroll-step": 1, // %, can be a float
+    "format": "{icon}    {volume}%",
+    "format-muted": "  {volume}%",
+    "format-source": "",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "pavucontrol"
+  },
+  "custom/media": {
+    "format": "{icon} {}",
+    "return-type": "json",
+    "max-length": 40,
+    "format-icons": {
+      "spotify": "",
+      "default": "🎜"
+    },
+    "escape": true,
+    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+    // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+  },
+  "custom/lock": {
+		"tooltip": false,
+		"on-click": "hyprlock &",
+		"format": ""
+	},
+	"custom/power": {
+		"tooltip": false,
+		"on-click": "wlogout &",
+		"format": "⏻"
+	},
+	"hyprland/language": {
+		"format": "   {}",
+		"format-en":"en",
+		"format-es":"es",
+		"interval": 1,
+		"on-click": "hyprctl switchxkblayout next"
+	}
+}
