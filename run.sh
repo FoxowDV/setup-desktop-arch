@@ -1,26 +1,37 @@
 #!/usr/bin/env bash
 
+pacmanFlags='--noconfirm --needed'
+yayFlags='-q --save --answerclean N --answerdiff N --cleanmenu=false --diffmenu=false --norebuild'
 
 # Setup yay
-sudo pacman -S --noconfirm --needed git base-devel && cd .. &&git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+sudo pacman -S ${pacmanFlags} git base-devel && cd .. &&git clone https://aur.archlinux.org/yay.git && cd yay && yes | makepkg -si
 
-# Setup desktop
+# Setup desktop hyprland
 cd ../setup-desktop-arch/
-sudo pacman -S --noconfirm hyprland dunst kitty rofi xdg-desktop-portal-hyprland qt5-wayland qt6-wayland polkit-kde-agent grim uwsm ttf-hack-nerd fish waybar neovim greetd ttf-hack-nerd
+sudo pacman -S ${pacmanFlags} hyprland dunst kitty rofi xdg-desktop-portal-hyprland qt5-wayland qt6-wayland polkit-kde-agent grim uwsm fish waybar neovim greetd pavucontrol
 cp -r ./dotfiles/.config/* ~/.config/
 
+# Fonts
+sudo pacman -S ${pacmanFlags} ttf-ubuntu-nerd noto-fonts
+yes | yay -S ttf-icomoon-feather
+
 # Setup tools
-yay -S meson ninja gcc clang cmake curl gdb go grep make nams yazi hyprshot sshfs
+sudo pacman -S ${pacmanFlags} traceroute iputils nmap
+yes | yay -S ${yayFlags} meson ninja gcc clang cmake curl gdb go grep make nams yazi hyprshot sshfs
 
 
 # Nvidia drivers
 
+
 # Setup qemu and virt-manager
 
-# Setup software
-sudo pacman -S --noconfirm ghidra dbeaver
+# Utils
+#yes | yay -S ${yayFlags} asusctl
 
-yay -S zen-browser-bin audacity asusctl bitwarden btop gimp spotify-launcher losslesscut-bin obsidian 
+# Setup software
+sudo pacman -S ${pacmanFlags} ghidra dbeaver
+
+yes | yay -S ${yayFlags} zen-browser-bin audacity bitwarden btop gimp spotify-launcher losslesscut-bin obsidian 
 
 ## Greeter
 sudo cp -r ./files/greetd/* /etc/greetd/

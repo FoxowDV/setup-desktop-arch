@@ -11,26 +11,28 @@
 ## style-6   style-7   style-8   style-9   style-10
 
 # Current Theme
+dir="$HOME/.config/rofi/powermenu/"
+theme='style'
 
 # CMDs
 uptime="`uptime -p | sed -e 's/up //g'`"
-host=`hostnamectl hostname`
+host=`hostname`
 
 # Options
-shutdown='󰤁'
-reboot='󰜉'
-lock=''
-suspend='󰤄'
-logout='󰍃'
-yes='󰸞'
-no='󱎘'
+shutdown=''
+reboot=''
+lock=''
+suspend=''
+logout=''
+yes=''
+no=''
 
 # Rofi CMD
 rofi_cmd() {
 	rofi -dmenu \
 		-p "Uptime: $uptime" \
 		-mesg "Uptime: $uptime" \
-		-theme ~/.config/rofi/powermenu/style.rasi
+		-theme ${dir}/${theme}.rasi
 }
 
 # Confirmation CMD
@@ -42,8 +44,8 @@ confirm_cmd() {
 		-theme-str 'textbox {horizontal-align: 0.5;}' \
 		-dmenu \
 		-p 'Confirmation' \
-		-mesg 'Are you sure?' \
-		-theme ~/.config/rofi/powermenu/style.rasi
+		-mesg 'Are you Sure?' \
+		-theme ${dir}/${theme}.rasi
 }
 
 # Ask for confirmation
@@ -66,7 +68,7 @@ run_cmd() {
 			systemctl reboot
 		elif [[ $1 == '--suspend' ]]; then
 			mpc -q pause
-      swaylock
+			amixer set Master mute
 			systemctl suspend
 		elif [[ $1 == '--logout' ]]; then
 			if [[ "$DESKTOP_SESSION" == 'openbox' ]]; then
@@ -77,8 +79,6 @@ run_cmd() {
 				i3-msg exit
 			elif [[ "$DESKTOP_SESSION" == 'plasma' ]]; then
 				qdbus org.kde.ksmserver /KSMServer logout 0 0 0
-      else
-        hyprctl dispatch exit
 			fi
 		fi
 	else
@@ -100,8 +100,6 @@ case ${chosen} in
 			betterlockscreen -l
 		elif [[ -x '/usr/bin/i3lock' ]]; then
 			i3lock
-    else
-      swaylock
 		fi
         ;;
     $suspend)
