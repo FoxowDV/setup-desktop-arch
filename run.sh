@@ -6,59 +6,21 @@ sudo pacman -S --noconfirm --needed git base-devel && cd .. &&git clone https://
 
 # Setup desktop
 cd ../setup-desktop-arch/
-sudo pacman -S --noconfirm hyprland \ 
-	dunst \ 
-	kitty \ 
-	rofi \
-	xdg-desktop-portal-hyprland \
-	qt5-wayland \
-	qt6-wayland \
-	polkit-kde-agent \
-	grim uwsm \
-	ttf-hack-nerd \
-	fish \
-	waybar \
-	neovim \
-	greetd \ 
-	ttf-hack-nerd
+sudo pacman -S --noconfirm hyprland dunst kitty rofi xdg-desktop-portal-hyprland qt5-wayland qt6-wayland polkit-kde-agent grim uwsm ttf-hack-nerd fish waybar neovim greetd ttf-hack-nerd
 cp -r ./dotfiles/.config/* ~/.config/
 
 # Setup tools
-yay -S meson \ 
-	ninja \ 
-	gcc \ 
-	clang \ 
-	cmake \ 
-	curl \ 
-	gdb \ 
-	go \ 
-	grep \ 
-	make \ 
-	nams \ 
-	yazi \ 
-	hyprshot \ 
-	sshfs
+yay -S meson ninja gcc clang cmake curl gdb go grep make nams yazi hyprshot sshfs
 
 
 # Nvidia drivers
 
 # Setup qemu and virt-manager
 
-sudo pacman -S --noconfirm ghidra \ 
-	dbeaver
-
-
-
 # Setup software
-yay -S zen-browser-bin \ 
-	audacity \ 
-	asusctl \ 
-	bitwarden \ 
-	btop \ 
-	gimp \ 
-	spotify-launcher \ 
-	losslesscut-bin \ 
-	obsidian \ 
+sudo pacman -S --noconfirm ghidra dbeaver
+
+yay -S zen-browser-bin audacity asusctl bitwarden btop gimp spotify-launcher losslesscut-bin obsidian 
 
 ## Greeter
 sudo cp -r ./files/greetd/* /etc/greetd/
