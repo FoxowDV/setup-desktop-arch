@@ -2,12 +2,11 @@
 
 
 # Setup yay
-sudo pacman -S --needed git base-devel && cd .. &&git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+sudo pacman -S --noconfirm --needed git base-devel && cd .. &&git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 
 # Setup desktop
 cd ../setup-desktop-arch/
-sudo pacman -S --noconfirm \ 
-	hyprland \ 
+sudo pacman -S --noconfirm hyprland \ 
 	dunst \ 
 	kitty \ 
 	rofi \
@@ -25,8 +24,7 @@ sudo pacman -S --noconfirm \
 cp -r ./dotfiles/.config/* ~/.config/
 
 # Setup tools
-yay -S \ 
-	meson \ 
+yay -S meson \ 
 	ninja \ 
 	gcc \ 
 	clang \ 
@@ -46,8 +44,7 @@ yay -S \
 
 # Setup qemu and virt-manager
 
-sudo pacman -S --noconfirm \ 
-	ghidra \ 
+sudo pacman -S --noconfirm ghidra \ 
 	dbeaver
 
 
