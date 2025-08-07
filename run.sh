@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-
+# Some of the packages should be installed by the archinstall config file, it just skips, does not matter
 pacmanFlags='--noconfirm --needed'
 yayFlags='-q --save --answerclean N --answerdiff N --cleanmenu=false --diffmenu=false --norebuild'
 
 # Setup yay
 sudo pacman -S ${pacmanFlags} git base-devel && cd .. &&git clone https://aur.archlinux.org/yay.git && cd yay && yes | makepkg -si
+
 
 # Setup desktop hyprland
 cd ../setup-desktop-arch/
