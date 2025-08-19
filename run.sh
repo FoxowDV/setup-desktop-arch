@@ -30,9 +30,9 @@ yes | yay -S ${yayFlags} meson ninja gcc clang cmake curl gdb go grep make nams 
 #yes | yay -S ${yayFlags} asusctl
 
 # Setup software
-sudo pacman -S ${pacmanFlags} ghidra dbeaver
+sudo pacman -S ${pacmanFlags} ghidra dbeaver veracrypt tor openvpn rnote
 
-yes | yay -S ${yayFlags} zen-browser-bin audacity bitwarden btop gimp spotify-launcher losslesscut-bin obsidian 
+yay -S ${yayFlags} zen-browser-bin audacity bitwarden btop gimp spotify-launcher losslesscut-bin obsidian 
 
 ## Greeter
 sudo cp -r ./files/greetd/* /etc/greetd/
