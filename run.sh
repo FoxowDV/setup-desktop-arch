@@ -37,7 +37,7 @@ yay -S ${yayFlags} zen-browser-bin audacity bitwarden btop gimp spotify-launcher
 
 # Other software
 sudo pacman -S ${pacmanFlags} ghidra  veracrypt tor openvpn 
-yay -S ${yayFlags} jcryptool
+yay -S ${yayFlags} jcryptool burpsuite exiftool
 
 ## Greeter
 sudo cp -r ./files/greetd/* /etc/greetd/
