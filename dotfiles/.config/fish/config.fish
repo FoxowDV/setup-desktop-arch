@@ -1,6 +1,8 @@
 if status is-interactive
 end
 
+set TERM xterm-256color
+
 fish_config theme choose "CatppuccinMocha"
 export MANPAGER='nvim +Man!'
 function y

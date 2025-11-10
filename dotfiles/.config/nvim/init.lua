@@ -10,7 +10,8 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- Don't show the mode, since it's already in the status line
-vim.opt.showmode = false
+vim.opt.showmode = true 
+
 
 -- Sync clipboard between OS and Neovim.
 vim.schedule(function()
@@ -107,6 +108,8 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 
+vim.cmd.colorscheme "lunaperche"
+
 require('lazy').setup("plugins")
 
 
@@ -114,18 +117,6 @@ vim.cmd [[
   hi Normal ctermbg=none guibg=none
 ]]
 
-
--- local cmp_nvim_lsp = require "cmp_nvim_lsp"
- 
-
---require("lspconfig").clangd.setup {
---  on_attach = on_attach,
---  capabilities = cmp_nvim_lsp.default_capabilities(),
---  cmd = {
---    "clangd",
---    "--offset-encoding=utf-16",
---  },
---}
 
 vim.api.nvim_create_autocmd('BufWinEnter', {
     command = 'set formatoptions-=cro',

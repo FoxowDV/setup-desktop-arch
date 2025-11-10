@@ -1,6 +1,4 @@
 # A
-base
-base-devel
 broadcom-wl
 btrfs-progs
 dart
@@ -17,11 +15,6 @@ libpulse
 libsass
 libva-intel-driver
 libva-nvidia-driver
-limine
-limine-mkinitcpio-hook
-limine-snapper-sync
-linux
-linux-firmware
 linux-headers
 nvidia-dkms
 nvidia-open-dkms

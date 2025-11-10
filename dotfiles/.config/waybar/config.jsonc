@@ -130,6 +130,6 @@
 		"format-en":"en",
 		"format-es":"es",
 		"interval": 1,
-		"on-click": "hyprctl switchxkblayout next"
+		"on-click": "hyprctl switchxkblayout al66 next"
 	}
 }
