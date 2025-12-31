@@ -10,7 +10,7 @@ command = "agreety --cmd /bin/sh"
 user="wallace"
 
 [initial_session]
-command = "uwsm app -- hyprland"
+command = "uwsm app -- start-hyprland"
 user = "wallace"
 
 # `agreety` is the bundled agetty/login-lookalike. You can replace `/bin/sh`
