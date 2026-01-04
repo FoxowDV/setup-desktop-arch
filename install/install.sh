@@ -1,9 +1,9 @@
 #
-sudo cp -f ./pacman.conf /etc/pacman.conf
+sudo cp -f ./install/pacman.conf /etc/pacman.conf
 
 
 #
-mapfile -t packages < <(grep -v '^#' "$./ashy.packages" | grep -v '^$')
+mapfile -t packages < <(grep -v '^#' "$./install/ashy.packages" | grep -v '^$')
 sudo pacman -S --noconfirm --needed "${packages[@]}"
 
 
