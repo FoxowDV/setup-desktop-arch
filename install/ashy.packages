@@ -29,9 +29,9 @@ meson
 cmake
 dkms
 go
-cargo # 1 or 2
+cargo
 gdb
-nams
+nasm
 sshfs
 docker
 docker-compose
