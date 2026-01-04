@@ -10,4 +10,4 @@ sudo pacman -S --noconfirm --needed "${packages[@]}"
 #
 yayFlags='-q --save --answerclean N --answerdiff N --cleanmenu=false --diffmenu=false --norebuild'
 
-sudo git clone https://aur.archlinux.org/yay.git && cd yay && yes | makepkg -si
+sudo git clone https://aur.archlinux.org/yay.git && cd yay && yes | makepkg -si && cd ..
